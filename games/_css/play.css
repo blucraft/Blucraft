@@ -1,0 +1,154 @@
+/****************** Meta ******************
+
+Dev: Matt Regehr - matt19234@gmail.com
+Version: 1.0.0 - Dec. 2014
+
+****************** General ******************/
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	font-weight: lighter;
+	font-family: calibri;
+	text-align: justify;
+}
+
+::selection {
+	background: #7f8c8d;
+
+	color: #ddd;
+}
+
+::-webkit-scrollbar {
+	width: 18px;
+
+	background-color: #ecf0f1;
+}
+
+::-webkit-scrollbar-thumb {
+	border: solid 3px transparent;
+
+	background-clip: content-box;
+	background-color: #9aa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #899;
+}
+
+/****************** Typography, Buttons etc. ******************/
+
+
+
+/****************** Layout ******************/
+
+html {
+	padding-top: 75px;
+	height: 100%;
+
+	background-color: #ecf0f1;
+}
+
+body {
+	position: relative;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+main {
+	overflow: auto;
+	height: 100%;
+}
+
+/****************** Header & Navigation ******************/
+
+header {
+	position: fixed;
+	z-index: 1000;
+	padding: 2px;
+	height: 75px;
+	width: 100%;
+	left: 0;
+	top: 0;
+
+	background-color: #fff;
+}
+
+header div.logo {
+	margin-right: 2px;
+	height: 100%;
+	float: left;
+}
+
+header img {
+	position: relative;
+	height: 100%;
+	z-index: -1;
+}
+
+nav {
+	float: left;
+}
+
+nav a {
+	display: inline-block;
+	height: 71px;
+	width: 71px;
+	float: left;
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30px;
+	
+	-webkit-transition: all .15s ease; transition: all .15s ease;
+}
+
+nav a:hover {
+	background-color: #e34;
+}
+
+nav a:active {
+	background-color: #666;
+}
+
+/****************** Main ******************/
+
+canvas {
+	top: 0; right: 0; bottom: 0; left: 0;
+	position: absolute;
+	margin: auto;
+
+	font-family: calibri;
+	font-size: 16px;
+	color: #fff;
+}
+
+div.UI {
+	top: 0; right: 0; bottom: 0; left: 0;
+	position: absolute;
+
+	z-index: 1000;
+}
+
+.game {
+	position: absolute;
+}
+
+button.game {
+	background-color: transparent;
+	background-size: 100%;
+
+	outline: none;
+	border: none;
+
+	-webkit-transition: all .15s ease; transition: all .15s ease;
+}
+
+button.game:hover {
+	opacity: 0.5;
+}
+
+/****************** K, All Done ******************/

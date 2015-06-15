@@ -1,0 +1,45 @@
+[
+	{
+		"name" : "The Experiment",
+		"description" : "Just a little 3D experiment.",
+
+		"cover" : "/games/the-experiment/_images/cover.png",
+
+		"path" : "/games/the-experiment/"
+	}, {
+		"name" : "Pancake Panda",
+		"description" : "Pancakes are falling from the sky, and lethal syrup is steadily rising. You, a panda, attempt to survive.",
+
+		"cover" : "/games/pancake-panda/_images/cover.png",
+
+		"path" : "/games/pancake-panda/"
+	}, {
+		"name" : "Lumos",
+		"description" : "",
+
+		"cover" : "/games/lumos/_images/cover.png",
+
+		"path" : "/games/lumos/"
+	}, {
+		"name" : "Xavier's Adventure",
+		"description" : "Xavier hates his home, so he begins on his quest to find the great canyon and make his home at the top.",
+
+		"cover" : "/games/xaviers-adventure/_images/cover.png",
+
+		"path" : "/games/xaviers-adventure/"
+	}, {
+		"name" : "Ghosts",
+		"description" : "In this simple and pointless game, the first person to 10 wins. Ghosts is scarily addicting though, so watch out.",
+
+		"cover" : "/games/ghosts/_images/cover.png",
+
+		"path" : "/games/ghosts/"
+	}, {
+		"name" : "Rocket Bob",
+		"description" : "Bob is little monkey who's always wanted to go to the moon. Will you help him reach his goal in his little banana fueled rocketship? Don't get killed by an asteroid.",
+
+		"cover" : "/games/rocket-bob/_images/cover.png",
+
+		"path" : "/games/rocket-bob/"
+	}
+]

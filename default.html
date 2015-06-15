@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Blucraft - Home</title>
+
+		<meta charset='UTF-8' />
+		<meta name='author' content='Matthew Regehr' />
+		<meta name='description' content='' />
+		
+		<link rel='stylesheet' href='/_css/app.css' />
+		<link rel='icon' href='/_images/icon.png' />
+	</head>
+	<body>
+		<header>
+			<h1 style='background-image: url(/_images/icon.png);'>Welcome to Blucraft Productions</h1>
+
+			<div class='buttons'>
+				<button onclick='$("aside.donate").removeClass("hidden");' class='donate'>Donate</button>
+			</div>
+		</header>
+		<main>
+			<section class='games'>
+
+			</section>
+			<aside class='hidden red donate'>
+				<h1>Thank you for your help! How much would you like to donate today?</h1>
+
+				<form method='get' action='/'>
+					<input type='radio' name='amount' value='2' /> $2
+					<input type='radio' name='amount' value='5' /> $5
+					<input type='radio' name='amount' value='10' /> $10
+					<input type='radio' name='amount' value='20' /> $20
+					<input type='radio' name='amount' value='50' /> $50
+					<input type='radio' name='amount' value='100' /> $100
+					<input type='radio' name='amount' value='200' /> $200
+
+					<br />
+
+					<input type='submit' value='Submit' />
+				</form>
+			</aside>
+			<aside class='hidden green 404-error'>
+				<h1>Houston, we have a problem.</h1>
+
+				<p>
+					Sorry about this, but the page your looking for isn't here; that's all we know :/
+				</p>
+			</aside>
+			<noscript>
+				<aside class='green noJS'>
+					<h1>Where's the JS?</h1>
+
+					<p>
+						Please turn on <bdi>JavaScript</bdi> in your browser. It is necessary for like, everything. If you don't know how, <a href="http://www.enable-javascript.com/" target="_blank">try this place</a>.
+					</p>
+				</aside>
+			</noscript>
+			<aside class='yellow status'>
+				<h1>Loading Games...</h1>
+
+				<p>
+					This should just take a sec.
+				</p>
+			</aside>
+		</main>
+		<footer>
+			&copy;2015 Blucraft
+		</footer>
+
+		<script src='/_js/jquery.js'></script>
+
+		<script>
+			var getFromURL = function (name) {
+				var pattern = new RegExp('[\\?&]' + name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]") + '=([^&#]*)');
+
+				var results = pattern.exec(location.href);
+
+				return results == null ? null : results[1];
+			};
+
+			$(function () {
+				// address errors
+				if (getFromURL('error') === '404') {
+					$('aside.404-error').removeClass('hidden');
+				}
+
+				// handle hiding the asides
+				$('html').click(function() {
+					$('aside').addClass('hidden');
+				});
+
+				$('aside, button.donate').click(function (event) {
+					event.stopPropagation();
+				});
+
+				// load the games
+				$.getJSON('/games/list.json', function (games) {
+					games.forEach(function (game) {
+						$('section.games').append($(document.createElement('a'))
+							.attr('href', game.path)
+
+							.addClass('game')
+
+							.html('<div class="cover" style="background-image: url(' + game.cover + ');"></div><div class="description"><h2>' + game.name + '</h2>' + game.description + '</div>'));
+					});
+
+					// wait a bit for a smoother slideout
+					setTimeout(function () {
+						$('aside.status').addClass('hidden');
+					}, 750);
+				}).fail(function () {
+					$('aside.status').html('<h1>Failed to load games!</h1><p>We\'re really sorry about this - but it should be fixed soon. If it\'s not, send us an email at <a href="mailto:suggestions@gamenut.com">suggestions@gamenut.com</a>. Thanks for your consideration :)</p>');
+				});
+			});
+		</script>
+	</body>
+</html>
